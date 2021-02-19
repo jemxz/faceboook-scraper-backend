@@ -2,8 +2,9 @@ const scrollToBottom = require('../middlewares/auto-scroll');
 const createGroup = require('./post-scraper')
 
 const target = [
-    "https://m.facebook.com/BGISaddis",
-    "https://m.facebook.com/BGISaddis"    
+    "https://m.facebook.com/CNN",
+    "https://m.facebook.com/BBC",
+    "https://m.facebook.com/FanaMediaTv"
 ]
 
 
