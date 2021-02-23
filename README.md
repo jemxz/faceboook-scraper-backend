@@ -27,9 +27,9 @@ node index.js
   Navigate to `http://localhost:3001`
 
 - API Document endpoints
-  http://localhost:3001/api/group/:id -------------------------------- GET-- Specfic group request
-
-
+```
+```
+ `http://localhost:3001/api/group/:id -------------------------------- GET-- Specfic group request`
 ```
 
 ## Project Structure
