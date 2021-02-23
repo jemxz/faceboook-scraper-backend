@@ -28,7 +28,6 @@ node index.js
 
 - API Document endpoints
 ```
-```
  `http://localhost:3001/api/group/:id -------------------------------- GET-- Specfic group request`
 ```
 
