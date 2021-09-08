@@ -1,11 +1,5 @@
 const GroupsCollection = require('../model/groupsCollection-model')
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, useUnifiedTopology: true})
-    .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.log(err.message))
-
-
 async function getCollectionById(id) {
     const collection = await GroupsCollection.findById(id)
     // console.log(collection.groups);

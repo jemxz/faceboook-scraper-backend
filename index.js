@@ -1,5 +1,20 @@
 const mongoose = require('mongoose');
-const GroupsCollection = require('./model/groupsCollection-model')
+const bodyParser = require('body-parser')
+const express = require('express')
+const cors = require('cors')
+const groupscollection = require('./routes/groupsCollection')
+const full = require('./routes/full')
+const app = express();
+
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true
+    })
+)
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 
 
 mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, useUnifiedTopology: true})
@@ -7,19 +22,12 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
     .catch(err => console.log(err.message))
 
 
-// const group = require('./routers/group')
-const express = require('express')
-const app = express();
-const router = express.Router()
 
 
-app.get('/api/group/:id',async function (req, res) {
-    const id = req.params.id
-    const groupsCollection = await GroupsCollection.findOne({"groups.name":id}, {"groups.name.$":true})
-    if(!groupsCollection) res.status(404).send('It doesnt exist')
-    res.send(groupsCollection);
-    
-});
+app.use('/api/groupscollection', groupscollection)
+app.use('/api/full', full)
+// app.use('/api/group', group)
+
 
 
 
