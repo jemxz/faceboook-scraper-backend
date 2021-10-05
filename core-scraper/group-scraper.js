@@ -1,11 +1,9 @@
 const scrollToBottom = require('../middlewares/auto-scroll');
 const createGroup = require('./post-scraper')
+const fs = require('fs')
 
-const target = [
-    "https://m.facebook.com/CNN",
-    "https://m.facebook.com/BBC",
-    "https://m.facebook.com/FanaMediaTv"
-]
+
+const target = fs.readFileSync('./target.txt', 'utf-8').split('\n')
 
 
 
