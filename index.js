@@ -4,6 +4,11 @@ const express = require('express')
 const cors = require('cors')
 const groupscollection = require('./routes/groupsCollection')
 const full = require('./routes/full')
+const singleGroup = require('./routes/singleGroup')
+const singlePost = require('./routes/singlePost')
+const singleComment = require('./routes/singleComment')
+const allPosts = require('./routes/allPosts')
+const allComments = require('./routes/allComments')
 const app = express();
 
 app.use(
@@ -24,12 +29,19 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
 
 
 
-app.use('/api/groupscollection', groupscollection)
-app.use('/api/full', full)
+app.use('/api/pages', groupscollection)
+app.use('/api/pages', full)
+app.use('/api/pages/group', singleGroup)
+app.use('/api/pages/post', singlePost)
+app.use('/api/pages/comment', singleComment)
+app.use('/api/pages/posts', allPosts)
+app.use('/api/pages/comments', allComments)
+
+
 // app.use('/api/group', group)
 
 
 
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3551;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
