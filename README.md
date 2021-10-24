@@ -1,8 +1,8 @@
 # Facebook-scraper-nodejs
 
-<iframe src="https://giphy.com/embed/XEy1qyv7GdLpmqHEPV" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/socialbakers-XEy1qyv7GdLpmqHEPV">via GIPHY</a></p>
+![] https://media0.giphy.com/media/XEy1qyv7GdLpmqHEPV/giphy.gif
 
-This is a tool that uses browser automation to scrape data from facebook
+This is a tool that uses browser automation to scrape data from facebook. This one in particular is made for scraping data from groups and pages that exist on facebook. Happy Scraping
 
 # Pre-requisites
 
@@ -24,6 +24,12 @@ npm install
 create a credentials.txt file with the first line your email and second line your password
 ```
 
+- Specify Targets
+
+```
+add the http link of the groups you want scraped on target.txt. Each line holding a new group
+```
+
 - Build and run the scraper
 
 ```
@@ -38,17 +44,19 @@ node index.js
 
 Navigate to `http://localhost:3551`
 
-- API Document endpoints
+## API Document endpoints
 
-```
- `http://localhost:3551/api/pages/:full -------------------------------- GET-- all the scraped data `
- `http://localhost:3551/api/pages/:id -------------------------------- GET-- Search By The name of Group`
- `http://localhost:3551/api/pages/comment/:document_id/:group_id/:post_id/:comment_id -------------------------------- GET-- Single Comment from a specific group `
- `http://localhost:3551/api/pages/post/:document_id/:group_id/:post_id -------------------------------- GET-- Single Post from a specific group `
- `http://localhost:3551/api/pages/group/:document_id/:group_id-------------------------------- GET-- Single Comment from a specific post `
- `http://localhost:3551/api/pages/posts/:document_id/:group_id -------------------------------- GET-- All Posts from a specific group `
- `http://localhost:3551/api/pages/comment/:document_id/:group_id/:post_id/ -------------------------------- GET-- All Comment from a specific post `
-```
+The folder structure of this app is explained below:
+
+| Functionaity                                   | APIs                                                                                |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------- |
+| **GET-- all the scraped data**                 | http://localhost:3551/api/pages/:full                                               |
+| **GET-- Search By The name of Group**          | http://localhost:3551/api/pages/:groupName                                          |
+| **GET-- Single Comment from a specific group** | http://localhost:3551/api/pages/comment/:document_id/:group_id/:post_id/:comment_id |
+| **GET-- Single Post from a specific group**    | http://localhost:3551/api/pages/post/:document_id/:group_id/:post_id                |
+| **GET-- Single Group from a all groups**       | http://localhost:3551/api/pages/group/:document_id/:group_id                        |
+| **GET-- All Posts from a specific group**      | http://localhost:3551/api/pages/posts/:document_id/:group_id                        |
+| **GET-- All Comment from a specific post**     | http://localhost:3551/api/pages/comment/:document_id/:group_id/:post_id/            |
 
 ## Project Structure
 
@@ -66,4 +74,4 @@ The folder structure of this app is explained below:
 | **src/models**       | Models define schemas that will be used in storing and retrieving data |
 | **src/db**           | Contains all the get query info from db                                |
 | **src/index.js**     | Entry point to the express server                                      |
-| package.json         | Contains npm dependencies as well as [build scripts]                   |
+| **package.json**     | Contains npm dependencies as well as [build scripts]                   |
