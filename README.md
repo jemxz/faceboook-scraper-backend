@@ -1,6 +1,6 @@
 # Facebook-scraper-nodejs
 
-![] https://media0.giphy.com/media/XEy1qyv7GdLpmqHEPV/giphy.gif
+![facebook scraper demo](imgs/template.gif)
 
 This is a tool that uses browser automation to scrape data from facebook. This one in particular is made for scraping data from groups and pages that exist on facebook. Happy Scraping
 
