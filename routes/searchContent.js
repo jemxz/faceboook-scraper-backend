@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-router.get('/:id', async function (req, res) {
+router.get('/:q', async function (req, res) {
     const id = req.query.id
     console.log(id);
     const result = await serachItem(id)
