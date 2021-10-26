@@ -6,7 +6,7 @@ This is a tool that uses browser automation to scrape data from facebook. This o
 
 # Pre-requisites
 
-- Install [Node.js](https://nodejs.org/en/) version 8.0.0
+- Install [Node.js](https://nodejs.org/en/) version 8.0.0 or up
 
 # Getting started
 
@@ -27,7 +27,8 @@ create a credentials.txt file with the first line your email and second line you
 - Specify Targets
 
 ```
-add the http link of the groups you want scraped on target.txt. Each line holding a new group
+Add the http link of the groups you want scraped on target.txt. Each line holding a new link for a group. **make sure to use mobile version of facebook links**.
+For example: https://m.facebook.com/cnn
 ```
 
 - Build and run the scraper
@@ -46,7 +47,7 @@ Navigate to `http://localhost:3551`
 
 ## API Document endpoints
 
-The folder structure of this app is explained below:
+Functional APIs that can be used:
 
 | Functionaity                                   | APIs                                                                                |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------- |

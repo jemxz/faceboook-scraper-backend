@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const login = require('./middlewares/login')
 const createGroups = require('./core-scraper/group-scraper')
-const GroupsCollection = require('./Model/groupsCollection-model')
+const GroupsCollection = require('./model/groupsCollection-model')
 const mongoose = require('mongoose');
 var CronJob = require('cron').CronJob;
 
