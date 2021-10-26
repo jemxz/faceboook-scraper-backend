@@ -32,7 +32,7 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
 
 
 
-app.use('/api/pages/groups', groupscollection)
+app.use('/api/page/search', groupscollection)
 app.use('/api/pages/onlygroups', groupsonly)
 app.use('/api/pages/search', searchItem)
 app.use('/api/pages', full)
