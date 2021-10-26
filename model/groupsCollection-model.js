@@ -45,7 +45,7 @@ const groupsCollection = new Schema({
 
 
 
-// groupsCollection.index({'groups.posts.postContent': 'text'})
+// groupsCollection.createIndex({'groups.posts.postContent': 'text'})
 const GroupsCollection = mongoose.model('GroupsCollection', groupsCollection)
 
 module.exports = GroupsCollection

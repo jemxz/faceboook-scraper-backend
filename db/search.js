@@ -1,17 +1,31 @@
 const GroupsCollection = require("../model/groupsCollection-model");
-const mongoose = require('mongoose');
-const {MongoClient} = require('mongodb');
 
-mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, useUnifiedTopology: true})
-    .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.log(err.message))
-
-
-async function searchable(item) {
+    async function getCollection() {
+        const collection = await GroupsCollection.find()
+        return collection;
+    }
     
-    const postContent = await GroupsCollection.groups[0].posts[0].postContent.find({ $text : {$search: item}})
-    console.log(postContent);
-    
-}
+    async function searchItem(searchItem) {
+        const result = await getCollection()
+        const items = []
+        result[0].groups.map(e => {
+            e.posts.map(e1 => {
+                const str1 = e1.postContent.toLowerCase()
+                const str2 = searchItem.toLowerCase()
+                if(str1.includes(str2)){
+                    var temp = {
+                        _id: e1._id,
+                        postContent: e1.postContent    
+                    }
+                    items.push(temp)
+                }
+            })
 
-searchable("matt")
+        })
+        return items
+    }
+    
+
+
+
+module.exports = searchItem
