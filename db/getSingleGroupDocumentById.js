@@ -8,6 +8,7 @@ async function getCollectionById(id) {
 async function getGroup(id, id2) {
     const result = await getCollectionById(id)
     const group = result.find(({id}) => id === id2)
+    console.log(group);
     return group
 }
 

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const cors = require('cors')
 const groupscollection = require('./routes/groupsCollection')
+const groupsonly = require('./routes/onlyGroups')
 const full = require('./routes/full')
 const singleGroup = require('./routes/singleGroup')
 const date = require('./routes/date')
@@ -31,6 +32,7 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
 
 
 app.use('/api/pages/search', groupscollection)
+app.use('/api/pages/onlygroups', groupsonly)
 app.use('/api/pages', full)
 app.use('/api/pages/dates', date)
 app.use('/api/pages/group', singleGroup)
