@@ -5,6 +5,7 @@ const cors = require('cors')
 const groupscollection = require('./routes/groupsCollection')
 const full = require('./routes/full')
 const singleGroup = require('./routes/singleGroup')
+const date = require('./routes/date')
 const singlePost = require('./routes/singlePost')
 const singleComment = require('./routes/singleComment')
 const allPosts = require('./routes/allPosts')
@@ -29,8 +30,9 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
 
 
 
-app.use('/api/pages', groupscollection)
+app.use('/api/pages/search', groupscollection)
 app.use('/api/pages', full)
+app.use('/api/pages/dates', date)
 app.use('/api/pages/group', singleGroup)
 app.use('/api/pages/post', singlePost)
 app.use('/api/pages/comment', singleComment)
