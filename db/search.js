@@ -1,21 +1,26 @@
 const GroupsCollection = require("../model/groupsCollection-model");
 
-    async function getCollection() {
-        const collection = await GroupsCollection.find()
+    async function getCollection(id) {
+        const collection = await GroupsCollection.findById(id)
         return collection;
     }
     
-    async function searchItem(searchItem) {
-        const result = await getCollection()
+    async function searchItem(id, searchItem) {
+        const result = await getCollection(id)
         const items = []
-        result[0].groups.map(e => {
+        result.groups.map(e => {
             e.posts.map(e1 => {
                 const str1 = e1.postContent.toLowerCase()
                 const str2 = searchItem.toLowerCase()
                 if(str1.includes(str2)){
                     var temp = {
+                        group_id: e.id,
                         _id: e1._id,
-                        postContent: e1.postContent    
+                        postLink: e1.postId,
+                        postContent: e1.postContent,
+                        numberOfLikes: e1.numberOfLikes,
+                        numberOfShares: e1.numberOfShares,
+                        timeOfPost: e1.timeOfPost    
                     }
                     items.push(temp)
                 }
