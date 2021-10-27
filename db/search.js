@@ -15,6 +15,8 @@ const GroupsCollection = require("../model/groupsCollection-model");
                 if(str1.includes(str2)){
                     var temp = {
                         group_id: e.id,
+                        groupName: e.name,
+                        groupLink: e.facebookLink,
                         _id: e1._id,
                         postLink: e1.postId,
                         postContent: e1.postContent,
