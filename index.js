@@ -13,6 +13,7 @@ const allPosts = require('./routes/allPosts')
 const allComments = require('./routes/allComments');
 const searchItem = require('./routes/searchContent');
 const keyWords = require('./routes/keywords')
+const getSentiment = require('./routes/getSentiment')
 const app = express();
 
 app.use(
@@ -33,6 +34,7 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
 
 
 app.use('/api/keyword', keyWords)
+app.use('/api/sentiment', getSentiment)
 app.use('/api/page/search', groupscollection)
 app.use('/api/pages/onlygroups', groupsonly)
 app.use('/api/pages/search', searchItem)
@@ -50,5 +52,5 @@ app.use('/api/pages/comments', allComments)
 
 
 
-const port = process.env.PORT || 3551;
+const port = process.env.PORT || 3552;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
