@@ -8,4 +8,5 @@ router.get('/:id', async function (req, res) {
     if(!full) res.status(404).send('It doesnt exist')
     res.send(full)
 })
+
 module.exports = router;

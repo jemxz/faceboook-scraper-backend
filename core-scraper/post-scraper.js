@@ -1,5 +1,9 @@
+const getFull= require('../db/getKeyWords');
+
+
 module.exports = async function createPosts(page, postIds){
-    console.log(postIds.length);
+    // console.log(postIds.length);
+    let full = await getFull()
     const posts = []
     const postLinks = postIds
 
@@ -9,6 +13,9 @@ module.exports = async function createPosts(page, postIds){
         const ids = []
         const names = []
         const comments = []
+        let rating = 0
+        let sentiment = "Normal"
+      
         
 
     // NAVIGATION TO DESIRED PAGE         
@@ -19,6 +26,7 @@ module.exports = async function createPosts(page, postIds){
                 numberOflikes: "",
                 numberOfShares: "",
                 timeOfPost: "",
+                postSentiment: [],
                 comments: []
             })
         } else {
@@ -56,7 +64,7 @@ module.exports = async function createPosts(page, postIds){
                     
                 } catch (error) {
                     return console.log(error.message)
-                }
+                }       
 
         // Scraping for comments of a given post using postIds   //
             try {
@@ -199,16 +207,29 @@ module.exports = async function createPosts(page, postIds){
                     commenterName: names[j],
                     commentorId: ids[j]
                 })
+            }  
+
+               // Sentiment calculator for analysis //
+            for(let i = 0; i<full.length; i++){
+                if(postContent.includes(full[i].keyWord)) rating++;
             }
-        //  console.log(comments);
+
+            if(rating == 1) sentiment = "low Negative"
+            if(rating == 2) sentiment = "Negative"
+            if(rating == 3) sentiment = "Above Negative"
+            if(rating > 3) sentiment = "Strong Negative" 
+
+
             posts.push ({
                     postId: postLinks[i],
                     postContent:postContent,
                     numberOfLikes: like,
                     numberOfShares: share,
                     timeOfPost: timeStamp,
+                    postSentiment: sentiment,
                     comments: comments
-                })    
+                })
+                    
         // console.log(posts);
     }
 

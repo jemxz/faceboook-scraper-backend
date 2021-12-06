@@ -107,6 +107,7 @@ module.exports = async function createGroups(page){
             
             const posts = await createGroup(page, arr)
             
+            
         
             groups.push({
                 name: nameOfGroup,
@@ -117,8 +118,9 @@ module.exports = async function createGroups(page){
             })
             
             
+            console.log("Hello");
         }
-    
+    console.log(groups);
     return groups
  
         

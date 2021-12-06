@@ -34,13 +34,13 @@ async function createGroupsCollection(){
     
         const groups = await createGroups(page)
         var date = new Date().toLocaleString()
-
         const group = new GroupsCollection({
             groups: groups,
             date: date
          })
          const result = await group.save()
          console.log(result);
+         browser.close()
     
 }
 

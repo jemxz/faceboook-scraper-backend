@@ -12,6 +12,7 @@ const singleComment = require('./routes/singleComment')
 const allPosts = require('./routes/allPosts')
 const allComments = require('./routes/allComments');
 const searchItem = require('./routes/searchContent');
+const keyWords = require('./routes/keywords')
 const app = express();
 
 app.use(
@@ -31,7 +32,7 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
 
 
 
-
+app.use('/api/keyword', keyWords)
 app.use('/api/page/search', groupscollection)
 app.use('/api/pages/onlygroups', groupsonly)
 app.use('/api/pages/search', searchItem)
