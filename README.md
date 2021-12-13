@@ -58,6 +58,10 @@ Functional APIs that can be used:
 | **GET-- Single Group from a all groups**       | http://localhost:3551/api/pages/group/:document_id/:group_id                        |
 | **GET-- All Posts from a specific group**      | http://localhost:3551/api/pages/posts/:document_id/:group_id                        |
 | **GET-- All Comment from a specific post**     | http://localhost:3551/api/pages/comment/:document_id/:group_id/:post_id/            |
+| **GET-- All posts that contain search Item**   | http://localhost:3551/api/pages/search/:searchItem                                  |
+| **GET-- All dates of all scraped dates**       | http://localhost:3551/api/pages/dates                                               |
+| **GET-- All keywords for sentiment analysis**  | http://localhost:3551/api/keyword                                                   |
+| **POST-- Add keywords for sentiment analysis** | http://localhost:3551/api/keyword                                                   |
 
 ## Project Structure
 
