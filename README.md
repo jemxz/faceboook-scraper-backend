@@ -62,6 +62,7 @@ Functional APIs that can be used:
 | **GET-- All dates of all scraped dates**       | http://localhost:3551/api/pages/dates                                               |
 | **GET-- All keywords for sentiment analysis**  | http://localhost:3551/api/keyword                                                   |
 | **POST-- Add keywords for sentiment analysis** | http://localhost:3551/api/keyword                                                   |
+| **Get-- All sentiment for a post**             | http://localhost:3551/api/sentiement                                                |
 
 ## Project Structure
 
