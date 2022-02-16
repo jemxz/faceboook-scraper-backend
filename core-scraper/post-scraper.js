@@ -227,6 +227,9 @@ module.exports = async function createPosts(page, postIds){
                     numberOfShares: share,
                     timeOfPost: timeStamp,
                     postSentiment: sentiment,
+                    isReported: false,
+                    ReportedBy:  "",
+                    timeOfReport: "",
                     comments: comments
                 })
                     

@@ -17,6 +17,9 @@ const groupsCollection = new Schema({
                         numberOfShares: String,
                         timeOfPost: String,
                         postSentiment: String,
+                        isReported: Boolean,
+                        timeOfReport: String,
+                        reportedBy: String,
                         comments: [
                             {
                                 commentContent: String,
