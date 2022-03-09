@@ -44,7 +44,6 @@ async function createGroupsCollection(){
 }
 
 schedule.scheduleJob("*/5 * * * *", () => {
-    console.log("Hello world");
     createGroupsCollection();
 })
 

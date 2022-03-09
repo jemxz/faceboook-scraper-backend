@@ -13,7 +13,8 @@ async function postLogin(page, navigationPage){
      await page.waitForSelector("#pass");
     await page.focus("#pass")
     await page.type("#pass", password, { delay: 30 });
-     //await page.click('#u_0_b');
+     await page.click('#password');
+     console.log("Loging in succesfull ... ");
     
 }
 module.exports = postLogin

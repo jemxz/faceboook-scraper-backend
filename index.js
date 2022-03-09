@@ -18,7 +18,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: ["http://localhost:3000","http://172.21.35.64:3000"],
         credentials: true
     })
 )
@@ -52,5 +52,5 @@ app.use('/api/pages/comments', allComments)
 
 
 
-const port = process.env.PORT || 3551;
+const port = process.env.PORT || 3552;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

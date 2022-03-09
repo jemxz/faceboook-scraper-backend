@@ -3,7 +3,7 @@ const createGroup = require('./post-scraper')
 const fs = require('fs')
 
 
-const target = fs.readFileSync('./target.txt', 'utf-8').split('\n')
+const target = fs.readFileSync('/home/ubuntu/Desktop/osint/Facebook/faceboook-scraper-backend/target.txt', 'utf-8').split('\n')
 
 
 

@@ -19,12 +19,23 @@ const groupsCollection = new Schema({
                         postSentiment: String,
                         isReported: Boolean,
                         timeOfReport: String,
-                        reportedBy: String,
+                        reporting:
+                            {
+                                is_reported: Boolean,
+                                reporting_date: Date,
+                                reported_by: String
+                            },
                         comments: [
                             {
                                 commentContent: String,
                                 commenterName: String,
-                                commentorId: String
+                                commentorId: String,
+                                reporting:
+                                    {
+                                        is_reported: Boolean,
+                                        reporting_date: Date,
+                                        reported_by: String
+                                    }
                             }
                         ]
                     }
