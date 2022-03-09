@@ -43,7 +43,7 @@ async function createGroupsCollection(){
     
 }
 
-schedule.scheduleJob("*/5 * * * *", () => {
+schedule.scheduleJob("*/600 * * * *", () => {
     createGroupsCollection();
 })
 

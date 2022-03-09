@@ -3,7 +3,8 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const cors = require('cors')
 const groupscollection = require('./routes/groupsCollection')
-const groupsonly = require('./routes/onlyGroups')
+const groupsonly = require('./routes/onlyGroups');
+const datesandgroups = require('./routes/onlyDatesAndGroups')
 const full = require('./routes/full')
 const singleGroup = require('./routes/singleGroup')
 const date = require('./routes/date')
@@ -12,8 +13,8 @@ const singleComment = require('./routes/singleComment')
 const allPosts = require('./routes/allPosts')
 const allComments = require('./routes/allComments');
 const searchItem = require('./routes/searchContent');
-const keyWords = require('./routes/keywords')
-const getSentiment = require('./routes/getSentiment')
+const keyWords = require('./routes/keywords');
+const getSentiment = require('./routes/getSentiment');
 const app = express();
 
 app.use(
@@ -37,6 +38,7 @@ app.use('/api/keyword', keyWords)
 app.use('/api/sentiment', getSentiment)
 app.use('/api/page/search', groupscollection)
 app.use('/api/pages/onlygroups', groupsonly)
+app.use('/api/pages/datesandgroups', datesandgroups)
 app.use('/api/pages/search', searchItem)
 app.use('/api/pages', full)
 app.use('/api/pages/dates', date)

@@ -5,10 +5,14 @@ const GroupsCollection = require('../model/groupsCollection-model')
         const collection = await GroupsCollection.findById(id)
         return collection.groups
     }
+    async function getDateById(id) {
+        const collection = await GroupsCollection.findById(id)
+        return collection.date
+    }
     
-    async function getGroupsOnly(id) {
+    async function getGroupsAndDatesOnly(id) {
         const result =  await getCollectionById(id)
-        console.log(result);
+        const date =  await getDateById(id)
         const items = []
         await Promise.all(result.map(async e => {
             const obj = {
@@ -17,6 +21,7 @@ const GroupsCollection = require('../model/groupsCollection-model')
                 numberOfFollowers: e.numberOfFollowers,
                 about: e.about,
                 facebookLink: e.facebookLink,
+                date: date,
                 postLength: e.posts.length
             }
             items.push(obj)
@@ -25,5 +30,5 @@ const GroupsCollection = require('../model/groupsCollection-model')
     }
     
 
-module.exports = getGroupsOnly;
+module.exports = getGroupsAndDatesOnly;
 // getGroupsOnly('60582afd3d213515d80e42d3')
