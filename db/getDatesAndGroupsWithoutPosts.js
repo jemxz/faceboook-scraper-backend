@@ -1,34 +1,53 @@
 const GroupsCollection = require('../model/groupsCollection-model')
 
 
-    async function getCollectionById(id) {
-        const collection = await GroupsCollection.findById(id)
-        return collection.groups
-    }
-    async function getDateById(id) {
-        const collection = await GroupsCollection.findById(id)
-        return collection.date
+    async function getCollectionById() {
+        try {
+            const collection = await GroupsCollection.find()
+            // console.log(collection);
+            return collection
+        } catch (e) {
+            console.log(e.message);
+        }
     }
     
-    async function getGroupsAndDatesOnly(id) {
-        const result =  await getCollectionById(id)
-        const date =  await getDateById(id)
+    async function getGroupsAndDatesOnly() {
+        const result =  await getCollectionById()
         const items = []
         await Promise.all(result.map(async e => {
-            const obj = {
-                _id: e._id,
-                name: e.name,
-                numberOfFollowers: e.numberOfFollowers,
-                about: e.about,
-                facebookLink: e.facebookLink,
-                date: date,
-                postLength: e.posts.length
-            }
-            items.push(obj)
+            e.groups.map(async r => {
+                const obj = {
+                    date: e.date,
+                    groupId: r._id,
+                    name: r.name,
+                    numberOfFollowers: r.numberOfFollowers,
+                    about: r.about,
+                    facebookLink: r.facebookLink,
+                    postLength: r.posts.length
+                }
+                items.push(obj)
+            } )
+
+            // const obj = {
+            //     _id: e._id,
+            //     date: e.date,
+            //     info : e.groups.map(async r => {
+            //         return {
+            //             groupId: r._id,
+            //             name: r.name,
+            //             numberOfFollowers: r.numberOfFollowers,
+            //             about: r.about,
+            //             facebookLink: r.facebookLink,
+            //             postLength: r.posts.length
+            //         }    
+            //     })
+            // }
+            // items.push(obj)
         }))
+        // console.log(items);
         return(items);
     }
-    
 
 module.exports = getGroupsAndDatesOnly;
-// getGroupsOnly('60582afd3d213515d80e42d3')
+// getCollectionById()
+//getGroupsAndDatesOnly()
