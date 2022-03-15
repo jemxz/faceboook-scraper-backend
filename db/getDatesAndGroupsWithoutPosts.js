@@ -17,6 +17,7 @@ const GroupsCollection = require('../model/groupsCollection-model')
         await Promise.all(result.map(async e => {
             e.groups.map(async r => {
                 const obj = {
+                    collectionId: e._id,
                     date: e.date,
                     groupId: r._id,
                     name: r.name,
