@@ -13,6 +13,7 @@ const singleComment = require('./routes/singleComment')
 const allPosts = require('./routes/allPosts')
 const allComments = require('./routes/allComments');
 const searchItem = require('./routes/searchContent');
+const searchRecent = require('./routes/searchRecent');
 const keyWords = require('./routes/keywords');
 const getSentiment = require('./routes/getSentiment');
 const app = express();
@@ -40,6 +41,7 @@ app.use('/api/page/search', groupscollection)
 app.use('/api/pages/onlygroups', groupsonly)
 app.use('/api/pages/datesandgroups', datesandgroups)
 app.use('/api/pages/search', searchItem)
+app.use('/api/pages/searchrecent', searchRecent)
 app.use('/api/pages', full)
 app.use('/api/pages/dates', date)
 app.use('/api/pages/group', singleGroup)
