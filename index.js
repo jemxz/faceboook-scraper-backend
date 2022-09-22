@@ -33,7 +33,7 @@ mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, use
 
 
 app.use('/api/keyword', keyWords)
-app.use('/api/sentiment', getSentiment)
+app.use('/api/postswithoutcomment', getSentiment)
 app.use('/api/page/search', groupscollection)
 app.use('/api/pages/onlygroups', groupsonly)
 app.use('/api/pages/datesandgroups', datesandgroups)
