@@ -1,5 +1,5 @@
 const fs = require('fs')
-var arr = fs.readFileSync('/home/ubuntu/Desktop/osint/Facebook/faceboook-scraper-backend/credentials.txt', 'utf-8').split('\n')
+var arr = fs.readFileSync('/home/osint/Desktop/osint/Facebook/faceboook-scraper-backend/credentials.txt', 'utf-8').split('\n')
 
 let count = Math.floor(Math.random()*4)
 
