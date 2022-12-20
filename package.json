@@ -29,6 +29,7 @@
     "nodemon": "^2.0.15",
     "pug": "^3.0.0",
     "puppeteer": "^2.1.1",
-    "puppeteer-core": "^2.0.0"
+    "puppeteer-core": "^2.0.0",
+    "sentiment": "^5.0.2"
   }
 }
