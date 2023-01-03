@@ -1,17 +1,20 @@
-const GroupsCollection = require('../model/groupsCollection-model')
+const GroupsCollection = require("../model/groupsCollection-model");
 
 async function getCollectionById(id) {
-    const collection = await GroupsCollection.findById(id)
-    return collection.groups
-        
+  const collection = await GroupsCollection.findById(id);
+  return collection.groups;
 }
 
-async function getAllPost(id,id2) {
-    const groupDocument = await getCollectionById(id)
-    const group = groupDocument.find(({id}) => id === id2)
-    const posts = group.posts
-    return posts
-    
+async function getAllPost(id, id2) {
+  try {
+    const groupDocument = await getCollectionById(id);
+    const group = groupDocument.find(({ id }) => id === id2);
+    const posts = group.posts;
+    return posts;
+  } catch (error) {
+    const posts = {};
+    return posts;
+  }
 }
 
 module.exports = getAllPost;

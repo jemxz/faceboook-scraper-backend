@@ -1,8 +1,12 @@
-const KeyWords = require('../model/keyWord-model')
+const KeyWords = require("../model/keyWord-model");
 
 async function getKeyWords() {
-    const collection = await KeyWords.find()
-    return collection      
+  try {
+    const collection = await KeyWords.find();
+    return collection;
+  } catch (error) {
+    return {};
+  }
 }
 
-module.exports = getKeyWords
+module.exports = getKeyWords;

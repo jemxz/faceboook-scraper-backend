@@ -1,9 +1,12 @@
-const GroupsCollection = require('../model/groupsCollection-model')
+const GroupsCollection = require("../model/groupsCollection-model");
 
 async function getFull() {
-    const collection = await GroupsCollection.find()
+  try {
+    const collection = await GroupsCollection.find();
     // console.log(collection);
-    return collection
-        
+    return collection;
+  } catch (error) {
+    return {};
+  }
 }
-module.exports = getFull
+module.exports = getFull;
