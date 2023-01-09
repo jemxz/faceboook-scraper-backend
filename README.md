@@ -2,7 +2,7 @@
 
 ![facebook scraper demo](imgs/template.gif)
 
-This is a tool that uses browser automation to scrape data from facebook. This one in particular is made for scraping data from groups and pages that exist on facebook. Happy Scraping
+This is a tool that uses browser automation to scrape data from facebook. This one in particular is made for scraping data from groups and pages that exist on facebook. Happy Scraping People
 
 # Pre-requisites
 
