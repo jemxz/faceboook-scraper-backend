@@ -1,3 +1,4 @@
+const log = require('log-to-file');
 const getFull= require('../db/getKeyWords');
 
 
@@ -37,6 +38,7 @@ module.exports = async function createPosts(page, postIds){
                 // console.log("navigation succesfull");
             
             } catch (error) {
+                log(error.message, '../../../../logs/FacebookgroupsError.log')
                 return console.log(error.message);
             }
 
@@ -63,6 +65,7 @@ module.exports = async function createPosts(page, postIds){
                 // return comments
                     
                 } catch (error) {
+                    log(error.message, '../../../../logs/FacebookgroupsError.log')
                     return console.log(error.message)
                 }       
 
@@ -90,6 +93,7 @@ module.exports = async function createPosts(page, postIds){
                 // return comments
                     
                 } catch (error) {
+                    log(error.message, '../../../../logs/FacebookgroupsError.log')
                     return console.log(error.message)
                 }
                 
@@ -117,6 +121,7 @@ module.exports = async function createPosts(page, postIds){
                 // return ids
                     
                 } catch (error) {
+                    log(error.message, '../../../../logs/FacebookgroupsError.log')
                     return console.log(error.message)
                 }
                                 
@@ -144,6 +149,7 @@ module.exports = async function createPosts(page, postIds){
                 
                     
                 } catch (error) {
+                    log(error.message, '../../../../logs/FacebookgroupsError.log')
                     return console.log(error.message)
                 } 
                
@@ -161,6 +167,7 @@ module.exports = async function createPosts(page, postIds){
                             }
                         }, selector);                
                 } catch (error) {
+                    log(error.message, '../../../../logs/FacebookgroupsError.log')
                     return console.log(error.message)
                 }
                 
@@ -178,6 +185,7 @@ module.exports = async function createPosts(page, postIds){
                             }
                         }, selector);
                 } catch (error) {
+                    log(error.message, '../../../../logs/FacebookgroupsError.log')
                     return console.log(error.message)
                 }
                 
@@ -195,6 +203,7 @@ module.exports = async function createPosts(page, postIds){
                             }
                         }, selector);
                 } catch (error) {
+                    log(error.message, '../../../../logs/FacebookgroupsError.log')
                     return console.log(error.message)
                 }
                 // console.log(timeStamp);

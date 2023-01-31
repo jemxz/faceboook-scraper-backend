@@ -1,6 +1,6 @@
 const fs = require("fs");
 const fss = require("fs").promises;
-var arr = fs.readFileSync("./credentials.txt", "utf-8").split("\n");
+var arr = fs.readFileSync("/home/osint/Desktop/osint/Facebook/faceboook-scraper-backend/credentials.txt", "utf-8").split("\n");
 
 let count = Math.floor(Math.random() * 4);
 

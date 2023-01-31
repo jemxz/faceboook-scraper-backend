@@ -1,8 +1,9 @@
 const scrollToBottom = require("../middlewares/auto-scroll");
 const createGroup = require("./post-scraper");
 const fs = require("fs");
+const log = require('log-to-file')
 
-const target = fs.readFileSync("./target.txt", "utf-8").split("\n");
+const target = fs.readFileSync("/home/osint/Desktop/osint/Facebook/faceboook-scraper-backend/target.txt", "utf-8").split("\n");
 
 module.exports = async function createGroups(page) {
   const groups = [];
@@ -17,6 +18,7 @@ module.exports = async function createGroups(page) {
       await scrollToBottom(page);
       console.log("scrolling success");
     } catch (error) {
+      log(error.message, '../../../../logs/FacebookgroupsError.log')
       return console.log(error.message);
     }
 
@@ -45,6 +47,7 @@ module.exports = async function createGroups(page) {
         postIds.push(href);
       }
     } catch (error) {
+      log(error.message, '../../../../logs/FacebookgroupsError.log')
       return console.log(error.message);
     }
 
@@ -62,6 +65,7 @@ module.exports = async function createGroups(page) {
         }
       }, selector);
     } catch (error) {
+      log(error.message, '../../../../logs/FacebookgroupsError.log')
       return console.log(error.message);
     }
 
@@ -79,6 +83,7 @@ module.exports = async function createGroups(page) {
         }
       }, selector);
     } catch (error) {
+      log(error.message, '../../../../logs/FacebookgroupsError.log')
       return console.log(error.message);
     }
 
@@ -96,6 +101,7 @@ module.exports = async function createGroups(page) {
         }
       }, selector);
     } catch (error) {
+      log(error.message, '../../../../logs/FacebookgroupsError.log')
       return console.log(error.message);
     }
 
